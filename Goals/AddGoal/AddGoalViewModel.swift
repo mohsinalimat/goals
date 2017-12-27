@@ -18,6 +18,7 @@ protocol AddGoalViewModelInput {
 
 protocol AddGoalViewModelOutput {
     var goalCreated: Driver<Void> { get }
+//    var amountText: Driver<String?> { get }
 }
 
 protocol AddGoalViewModelType {
@@ -27,6 +28,7 @@ protocol AddGoalViewModelType {
 
 final class AddGoalViewModel: AddGoalViewModelType, AddGoalViewModelInput, AddGoalViewModelOutput {
     let goalCreated: SharedSequence<DriverSharingStrategy, Void>
+//    let amountText: SharedSequence<DriverSharingStrategy, String?>
 
     init(goalService: GoalCreatable = GoalService()) {
         let title = titleProperty.asDriverOnErrorJustComplete().skipNil()
@@ -34,6 +36,13 @@ final class AddGoalViewModel: AddGoalViewModelType, AddGoalViewModelInput, AddGo
         let titleAndAmount = Driver.combineLatest(title, amount).map(sanitize)
 
         let isValid = titleAndAmount.map(validate)
+
+//        amountText = amount.map { value in
+//            let numberFormatter = NumberFormatter()
+//            numberFormatter.locale = Locale.current
+//            numberFormatter.numberStyle = .currency
+//            return numberFormatter.string(from: value as NSNumber)
+//        }
 
         goalCreated = confirmProperty.withLatestFrom(isValid)
             .skipWhile { $0 == false }

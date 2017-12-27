@@ -16,12 +16,14 @@ import RxCocoa
 final class AddGoalViewModelTest: XCTestCase {
 
     private var vm: AddGoalViewModelType!
+    private var mockGoalService: MockGoalService!
     private var disposeBag: DisposeBag!
     private var goalCreated: TestableObserver<Void>!
 
     override func setUp() {
         super.setUp()
-        vm = AddGoalViewModel(goalService: MockGoalService())
+        mockGoalService = MockGoalService()
+        vm = AddGoalViewModel(goalService: mockGoalService)
         disposeBag = DisposeBag()
 
         let scheduler = TestScheduler(initialClock: 0)
@@ -48,5 +50,14 @@ final class AddGoalViewModelTest: XCTestCase {
             next(0, ())
         ]
         XCTAssertEqual(goalCreated.events.count, expected.count) // asserting events.count because Void is not equatable.
+    }
+
+    func test_whenInputsHaveTrash_shouldSanitizeThemBeforeGoalCreation() {
+        vm.input.titleChanged("\n\n   Buy an iPhone X    \n")
+        vm.input.amountChanged("1000")
+        vm.input.confirmTapped()
+
+        let expected = Goal(uid: "12345", title: "Buy an iPhone X", amount: 1000)
+        XCTAssertEqual(mockGoalService.goalCreated, expected)
     }
 }

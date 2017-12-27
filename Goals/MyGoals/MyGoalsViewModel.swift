@@ -10,9 +10,15 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol MyGoalsViewModelInput {}
+protocol MyGoalsViewModelInput {
+    func viewDidAppear()
+    func pullToRefresh()
+}
 
-protocol MyGoalsViewModelOutput {}
+protocol MyGoalsViewModelOutput {
+    var goals: Driver<[GoalDisplayable]> { get }
+    var isLoading: Driver<Bool> { get }
+}
 
 protocol MyGoalsViewModelType {
     var input: MyGoalsViewModelInput { get }
@@ -20,7 +26,32 @@ protocol MyGoalsViewModelType {
 }
 
 final class MyGoalsViewModel: MyGoalsViewModelType, MyGoalsViewModelInput, MyGoalsViewModelOutput {
-    
+    let goals: SharedSequence<DriverSharingStrategy, [GoalDisplayable]>
+    let isLoading: SharedSequence<DriverSharingStrategy, Bool>
+
+    init(goalService: GoalLoadable = GoalService()) {
+        let activityTracker = ActivityTracker()
+        isLoading = activityTracker.asDriver()
+
+        goals = Observable.merge(viewDidAppearProperty, pullToRefreshProperty)
+            .flatMap { _ in
+                return goalService.all()
+                    .trackActivity(activityTracker)
+            }
+            .map { $0.map(GoalDisplayable.init) }
+            .asDriver(onErrorJustReturn: [])
+    }
+
+    private let viewDidAppearProperty = PublishSubject<Void>()
+    func viewDidAppear() {
+        viewDidAppearProperty.onNext(())
+    }
+
+    private let pullToRefreshProperty = PublishSubject<Void>()
+    func pullToRefresh() {
+        pullToRefreshProperty.onNext(())
+    }
+
     var input: MyGoalsViewModelInput { return self }
     var output: MyGoalsViewModelOutput { return self }
 }

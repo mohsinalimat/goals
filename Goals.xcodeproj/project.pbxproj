@@ -22,6 +22,13 @@
 		18026EFE1FF2B64700C9C267 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18026EFD1FF2B64600C9C267 /* Reusable.swift */; };
 		185794431FF3C29200522A88 /* AddGoalViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185794421FF3C29200522A88 /* AddGoalViewModelTest.swift */; };
 		185794451FF3C2DD00522A88 /* MockGoalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185794441FF3C2DD00522A88 /* MockGoalService.swift */; };
+		185794471FF3D0DF00522A88 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185794461FF3D0DF00522A88 /* GoalCell.swift */; };
+		185794491FF3D22E00522A88 /* MyGoalsSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185794481FF3D22E00522A88 /* MyGoalsSectionController.swift */; };
+		1857944B1FF3DAC900522A88 /* ActivityTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857944A1FF3DAC900522A88 /* ActivityTracker.swift */; };
+		1857944E1FF3E22600522A88 /* GoalOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857944D1FF3E22600522A88 /* GoalOverviewViewController.swift */; };
+		185794501FF3E26500522A88 /* GoalOverview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1857944F1FF3E26500522A88 /* GoalOverview.storyboard */; };
+		185794531FF3E3B700522A88 /* PaymentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185794521FF3E3B700522A88 /* PaymentsViewController.swift */; };
+		185794551FF3E3C000522A88 /* Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 185794541FF3E3C000522A88 /* Payments.storyboard */; };
 		18C468CD1FF2B77100C53250 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C468CC1FF2B77100C53250 /* Goal.swift */; };
 		18C468D01FF2B78F00C53250 /* RMGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C468CF1FF2B78F00C53250 /* RMGoal.swift */; };
 		18C468D21FF2B8F500C53250 /* Observable+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C468D11FF2B8F500C53250 /* Observable+Domain.swift */; };
@@ -68,6 +75,13 @@
 		18026EFD1FF2B64600C9C267 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		185794421FF3C29200522A88 /* AddGoalViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalViewModelTest.swift; sourceTree = "<group>"; };
 		185794441FF3C2DD00522A88 /* MockGoalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGoalService.swift; sourceTree = "<group>"; };
+		185794461FF3D0DF00522A88 /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
+		185794481FF3D22E00522A88 /* MyGoalsSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGoalsSectionController.swift; sourceTree = "<group>"; };
+		1857944A1FF3DAC900522A88 /* ActivityTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTracker.swift; sourceTree = "<group>"; };
+		1857944D1FF3E22600522A88 /* GoalOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalOverviewViewController.swift; sourceTree = "<group>"; };
+		1857944F1FF3E26500522A88 /* GoalOverview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GoalOverview.storyboard; sourceTree = "<group>"; };
+		185794521FF3E3B700522A88 /* PaymentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewController.swift; sourceTree = "<group>"; };
+		185794541FF3E3C000522A88 /* Payments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Payments.storyboard; sourceTree = "<group>"; };
 		18C468CC1FF2B77100C53250 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		18C468CF1FF2B78F00C53250 /* RMGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMGoal.swift; sourceTree = "<group>"; };
 		18C468D11FF2B8F500C53250 /* Observable+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Domain.swift"; sourceTree = "<group>"; };
@@ -133,6 +147,8 @@
 		18026EC81FF2B5D700C9C267 /* Goals */ = {
 			isa = PBXGroup;
 			children = (
+				185794511FF3E3A700522A88 /* Payments */,
+				1857944C1FF3E21600522A88 /* GoalOverview */,
 				18C468CB1FF2B73F00C53250 /* Repository */,
 				18C468CA1FF2B72E00C53250 /* Extensions */,
 				18026EC91FF2B5D700C9C267 /* AppDelegate.swift */,
@@ -150,6 +166,7 @@
 				18C468E41FF2C46E00C53250 /* KeyboardObserver.swift */,
 				18C468E81FF2C83400C53250 /* GoalService.swift */,
 				18C468EA1FF2C9D000C53250 /* Observable+Utilities.swift */,
+				1857944A1FF3DAC900522A88 /* ActivityTracker.swift */,
 			);
 			path = Goals;
 			sourceTree = "<group>";
@@ -162,6 +179,24 @@
 				185794441FF3C2DD00522A88 /* MockGoalService.swift */,
 			);
 			path = GoalsTests;
+			sourceTree = "<group>";
+		};
+		1857944C1FF3E21600522A88 /* GoalOverview */ = {
+			isa = PBXGroup;
+			children = (
+				1857944D1FF3E22600522A88 /* GoalOverviewViewController.swift */,
+				1857944F1FF3E26500522A88 /* GoalOverview.storyboard */,
+			);
+			path = GoalOverview;
+			sourceTree = "<group>";
+		};
+		185794511FF3E3A700522A88 /* Payments */ = {
+			isa = PBXGroup;
+			children = (
+				185794521FF3E3B700522A88 /* PaymentsViewController.swift */,
+				185794541FF3E3C000522A88 /* Payments.storyboard */,
+			);
+			path = Payments;
 			sourceTree = "<group>";
 		};
 		18C468CA1FF2B72E00C53250 /* Extensions */ = {
@@ -208,6 +243,8 @@
 				18C468D41FF2BA2700C53250 /* MyGoalsViewController.swift */,
 				18C468D71FF2BA4A00C53250 /* MyGoalsViewModel.swift */,
 				18C468D91FF2BC1F00C53250 /* MyGoals.storyboard */,
+				185794461FF3D0DF00522A88 /* GoalCell.swift */,
+				185794481FF3D22E00522A88 /* MyGoalsSectionController.swift */,
 			);
 			path = MyGoals;
 			sourceTree = "<group>";
@@ -334,6 +371,8 @@
 				18026ED41FF2B5D700C9C267 /* LaunchScreen.storyboard in Resources */,
 				18C468E11FF2BE7E00C53250 /* AddGoal.storyboard in Resources */,
 				18C468DA1FF2BC1F00C53250 /* MyGoals.storyboard in Resources */,
+				185794551FF3E3C000522A88 /* Payments.storyboard in Resources */,
+				185794501FF3E26500522A88 /* GoalOverview.storyboard in Resources */,
 				18026ED11FF2B5D700C9C267 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,14 +510,18 @@
 			files = (
 				18026EF01FF2B5F700C9C267 /* RealmRepresentable.swift in Sources */,
 				18C468E71FF2C7FA00C53250 /* AddGoalViewModel.swift in Sources */,
+				1857944E1FF3E22600522A88 /* GoalOverviewViewController.swift in Sources */,
 				18026EEE1FF2B5F200C9C267 /* RunLoopThreadScheduler.swift in Sources */,
 				18C468D21FF2B8F500C53250 /* Observable+Domain.swift in Sources */,
 				18026EF21FF2B5FB00C9C267 /* Realm+Ext.swift in Sources */,
+				185794471FF3D0DF00522A88 /* GoalCell.swift in Sources */,
+				185794491FF3D22E00522A88 /* MyGoalsSectionController.swift in Sources */,
 				18C468CD1FF2B77100C53250 /* Goal.swift in Sources */,
 				18C468E91FF2C83400C53250 /* GoalService.swift in Sources */,
 				18C468DE1FF2BE6C00C53250 /* AddGoalViewController.swift in Sources */,
 				18026EFE1FF2B64700C9C267 /* Reusable.swift in Sources */,
 				18C468EB1FF2C9D000C53250 /* Observable+Utilities.swift in Sources */,
+				1857944B1FF3DAC900522A88 /* ActivityTracker.swift in Sources */,
 				18C468E51FF2C46E00C53250 /* KeyboardObserver.swift in Sources */,
 				18026EF41FF2B60100C9C267 /* Storyboard.swift in Sources */,
 				18026EEC1FF2B5EE00C9C267 /* DomainConvertibleType.swift in Sources */,
@@ -489,6 +532,7 @@
 				18C468E31FF2C03F00C53250 /* CircularTransition.swift in Sources */,
 				18026EEA1FF2B5E900C9C267 /* Repository.swift in Sources */,
 				18026EF71FF2B60F00C9C267 /* Color.swift in Sources */,
+				185794531FF3E3B700522A88 /* PaymentsViewController.swift in Sources */,
 				18026EF81FF2B60F00C9C267 /* UIColor.swift in Sources */,
 				18C468DC1FF2BD3E00C53250 /* FloatingButton.swift in Sources */,
 			);

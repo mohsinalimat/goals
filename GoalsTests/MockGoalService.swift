@@ -11,13 +11,16 @@ import RxSwift
 
 @testable import Goals
 
-struct MockGoalService: GoalCreatable {
+final class MockGoalService: GoalCreatable {
+    var goalCreated: Goal!
+
     func create(with title: String, amount: Double) -> Observable<Goal> {
         let goal = Goal(
             uid: "12345",
             title: title,
             amount: amount
         )
+        goalCreated = goal
         return Observable.just(goal)
     }
 }

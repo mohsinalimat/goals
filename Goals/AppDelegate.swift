@@ -9,12 +9,12 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        setupAppearance()
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: MyGoalsViewController.instantiate())
@@ -23,5 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    private func setupAppearance() {
+        UINavigationBar.appearance().barTintColor = Color.primaryGreen
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+    }
 }
-

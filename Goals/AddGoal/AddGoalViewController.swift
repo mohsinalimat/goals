@@ -51,6 +51,10 @@ final class AddGoalViewController: UIViewController {
         viewModel.output.goalCreated
             .drive(onNext: clearFields)
             .disposed(by: disposeBag)
+
+//        viewModel.output.amountText
+//            .drive(goalAmountTextField.rx.text)
+//            .disposed(by: disposeBag)
     }
 
     private func clearFields() {
