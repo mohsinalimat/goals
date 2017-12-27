@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qng-Sb-dFd">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Add Goal View Controller-->
+        <scene sceneID="CpL-el-c61">
+            <objects>
+                <viewController id="Qng-Sb-dFd" customClass="AddGoalViewController" customModule="Goals" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NI8-a1-gtQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIk-Rm-BPa" customClass="FloatingButton" customModule="Goals" customModuleProvider="target">
+                                <rect key="frame" x="318" y="610" width="25" height="25"/>
+                                <state key="normal" image="ic_checkmark"/>
+                                <connections>
+                                    <action selector="confirmButtonTapped:" destination="Qng-Sb-dFd" eventType="touchUpInside" id="RbC-yU-ig2"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="N8d-3N-a2l">
+                                <rect key="frame" x="24" y="93" width="327" height="92"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What your Goal?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iwk-wu-Tu8">
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="3JJ-Sv-FRM"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="How much do you need?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yk4-F8-wy5">
+                                        <rect key="frame" x="0.0" y="52" width="327" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="zZA-Om-YCa"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hy5-T2-sXB">
+                                <rect key="frame" x="24" y="44" width="25" height="25"/>
+                                <state key="normal" image="ic_close"/>
+                                <connections>
+                                    <action selector="dismissButtonTapped:" destination="Qng-Sb-dFd" eventType="touchUpInside" id="Xuk-rB-wxF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sgj-f9-F0s" firstAttribute="trailing" secondItem="fIk-Rm-BPa" secondAttribute="trailing" constant="32" id="XEN-uR-wJ4"/>
+                            <constraint firstItem="sgj-f9-F0s" firstAttribute="bottom" secondItem="fIk-Rm-BPa" secondAttribute="bottom" constant="32" id="c8f-3l-yTi"/>
+                            <constraint firstItem="N8d-3N-a2l" firstAttribute="top" secondItem="Hy5-T2-sXB" secondAttribute="bottom" constant="24" id="cCv-2H-fqn"/>
+                            <constraint firstItem="Hy5-T2-sXB" firstAttribute="top" secondItem="sgj-f9-F0s" secondAttribute="top" constant="24" id="fgE-RC-Nkz"/>
+                            <constraint firstItem="N8d-3N-a2l" firstAttribute="leading" secondItem="sgj-f9-F0s" secondAttribute="leading" constant="24" id="goI-DT-nng"/>
+                            <constraint firstItem="Hy5-T2-sXB" firstAttribute="leading" secondItem="sgj-f9-F0s" secondAttribute="leading" constant="24" id="s4g-Rw-3to"/>
+                            <constraint firstItem="sgj-f9-F0s" firstAttribute="trailing" secondItem="N8d-3N-a2l" secondAttribute="trailing" constant="24" id="x4q-1N-2VK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sgj-f9-F0s"/>
+                    </view>
+                    <connections>
+                        <outlet property="confirmButton" destination="fIk-Rm-BPa" id="gwn-H3-EiL"/>
+                        <outlet property="confirmButtonBottomConstraint" destination="c8f-3l-yTi" id="5uR-BB-lnu"/>
+                        <outlet property="dismissButton" destination="Hy5-T2-sXB" id="RDM-FB-fbH"/>
+                        <outlet property="goalAmountTextField" destination="yk4-F8-wy5" id="fNB-hh-yLG"/>
+                        <outlet property="goalTitleTextField" destination="iwk-wu-Tu8" id="boL-9v-zHW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7jo-GQ-2Yj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28" y="102"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_checkmark" width="25" height="25"/>
+        <image name="ic_close" width="25" height="25"/>
+    </resources>
+</document>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NI7-D5-6lz">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Goals View Controller-->
+        <scene sceneID="c95-sZ-33h">
+            <objects>
+                <viewController id="NI7-D5-6lz" customClass="MyGoalsViewController" customModule="Goals" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jdY-k3-GPi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DBo-sL-ESZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TGR-ov-qEx">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6Pu-PC-t52">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icr-Ec-XY3" customClass="FloatingButton" customModule="Goals" customModuleProvider="target">
+                                <rect key="frame" x="318" y="610" width="25" height="25"/>
+                                <state key="normal" image="ic_add"/>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="NI7-D5-6lz" eventType="touchUpInside" id="xCx-U9-jpl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="M2M-1n-F1v" firstAttribute="trailing" secondItem="icr-Ec-XY3" secondAttribute="trailing" constant="32" id="E6q-sp-wAJ"/>
+                            <constraint firstItem="DBo-sL-ESZ" firstAttribute="top" secondItem="M2M-1n-F1v" secondAttribute="top" id="KMP-1W-hcM"/>
+                            <constraint firstItem="M2M-1n-F1v" firstAttribute="bottom" secondItem="icr-Ec-XY3" secondAttribute="bottom" constant="32" id="QuY-g2-LcE"/>
+                            <constraint firstItem="M2M-1n-F1v" firstAttribute="trailing" secondItem="DBo-sL-ESZ" secondAttribute="trailing" id="bPN-Ub-j3k"/>
+                            <constraint firstItem="DBo-sL-ESZ" firstAttribute="leading" secondItem="M2M-1n-F1v" secondAttribute="leading" id="dND-08-GjP"/>
+                            <constraint firstItem="M2M-1n-F1v" firstAttribute="bottom" secondItem="DBo-sL-ESZ" secondAttribute="bottom" id="lDU-ic-BAM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="M2M-1n-F1v"/>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="icr-Ec-XY3" id="dC0-KK-Dfh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yqz-cS-v04" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-29" y="110"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_add" width="25" height="25"/>
+    </resources>
+</document>
