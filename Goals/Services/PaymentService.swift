@@ -17,6 +17,10 @@ protocol PaymentCreatable {
     func create(with amount: Double, on goal: Goal) -> Observable<Payment>
 }
 
+protocol PaymentDeletable {
+    func delete(_ payment: Payment) -> Observable<Void>
+}
+
 struct PaymentService {
     private let paymentRepository: AbstractRespository<Payment>
     private let goalRepository: AbstractRespository<Goal>
@@ -56,5 +60,11 @@ extension PaymentService: PaymentCreatable {
 
         return goalRepository.save(goal)
             .map { _ in payment }
+    }
+}
+
+extension PaymentService: PaymentDeletable {
+    func delete(_ payment: Payment) -> Observable<Void> {
+        return paymentRepository.delete(by: payment.uid)
     }
 }

@@ -27,11 +27,11 @@ extension SortDescriptor {
 }
 
 extension Reactive where Base: Realm {
-    func save<R: RealmRepresentable>(_ entity: R, update: Bool = true) -> Observable<Void> where R.RealmType: Object {
+    func save(_ entity: Object, update: Bool = true) -> Observable<Void> {
         return Observable.create { observer in
             do {
                 try self.base.write {
-                    self.base.add(entity.asRealm(), update: update)
+                    self.base.add(entity, update: update)
                 }
                 observer.onNext(())
                 observer.onCompleted()
@@ -43,11 +43,11 @@ extension Reactive where Base: Realm {
         }
     }
 
-    func save<R: RealmRepresentable>(_ entities: [R], update: Bool = true) -> Observable<Void> where R.RealmType: Object {
+    func save(_ entities: [Object], update: Bool = true) -> Observable<Void> {
         return Observable.create { observer in
             do {
                 try self.base.write {
-                    self.base.add(entities.map { $0.asRealm() }, update: update)
+                    self.base.add(entities, update: update)
                 }
                 observer.onNext(())
                 observer.onCompleted()
@@ -59,11 +59,27 @@ extension Reactive where Base: Realm {
         }
     }
 
-    func delete<R: RealmRepresentable>(_ entity: R) -> Observable<Void> where R.RealmType: Object {
+    func delete(_ entity: Object) -> Observable<Void> {
         return Observable.create { observer in
             do {
                 try self.base.write {
-                    self.base.delete(entity.asRealm())
+                    self.base.delete(entity)
+                }
+                observer.onNext(())
+                observer.onCompleted()
+            } catch {
+                observer.onError(error)
+            }
+
+            return Disposables.create()
+        }
+    }
+
+    func delete(_ entities: Results<Object>) -> Observable<Void> {
+        return Observable.create { observer in
+            do {
+                try self.base.write {
+                    self.base.delete(entities)
                 }
                 observer.onNext(())
                 observer.onCompleted()

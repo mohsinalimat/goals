@@ -16,6 +16,10 @@ private func abstractMethod() -> Never {
     fatalError("abstract method")
 }
 
+enum RepositoryError: Error {
+    case notFound
+}
+
 class AbstractRespository<T> {
     func queryAll() -> Observable<[T]> {
         abstractMethod()
@@ -37,7 +41,11 @@ class AbstractRespository<T> {
         abstractMethod()
     }
 
-    func delete(_ entity: T) -> Observable<Void> {
+    func delete(by id: String) -> Observable<Void> {
+        abstractMethod()
+    }
+
+    func delete(with predicate: NSPredicate) -> Observable<Void> {
         abstractMethod()
     }
 }
@@ -88,18 +96,32 @@ final class Repository<T: RealmRepresentable>: AbstractRespository<T> where T ==
     }
 
     override func save(_ entity: T) -> Observable<Void> {
-        return Observable.deferred { self.realm.rx.save(entity) }
+        return Observable.deferred { self.realm.rx.save(entity.asRealm()) }
             .subscribeOn(scheduler)
     }
 
     override func save(_ entities: [T]) -> Observable<Void> {
-        return Observable.deferred { self.realm.rx.save(entities) }
+        return Observable.deferred { self.realm.rx.save(entities.map { $0.asRealm() }) }
             .subscribeOn(scheduler)
     }
 
-    override func delete(_ entity: T) -> Observable<Void> {
-        return Observable.deferred { self.realm.rx.delete(entity) }
+    override func delete(by id: String) -> Observable<Void> {
+        return Observable.deferred {
+            guard let object = self.realm.object(ofType: T.RealmType.self, forPrimaryKey: id) else {
+                return Observable.error(RepositoryError.notFound)
+            }
+            return self.realm.rx.delete(object)
+            }
             .subscribeOn(scheduler)
+    }
+
+    override func delete(with predicate: NSPredicate) -> Observable<Void> {
+        return Observable.deferred {
+            let objects = self.realm.objects(T.RealmType.self)
+                .filter(predicate)
+            return Observable.merge(objects.map(self.realm.rx.delete))
+        }
+        .subscribeOn(scheduler)
     }
 
 }

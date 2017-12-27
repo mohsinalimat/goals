@@ -9,8 +9,13 @@
 import Foundation
 import IGListKit
 
+protocol PaymentsSectionControllerDelegate: class {
+    func didSelect(_ payment: Payment)
+}
+
 final class PaymentsSectionController: ListSectionController {
     private var item: PaymentDisplayable!
+    weak var delegate: PaymentsSectionControllerDelegate?
 
     override func sizeForItem(at index: Int) -> CGSize {
         let width = collectionContext!.containerSize.width
@@ -32,5 +37,9 @@ final class PaymentsSectionController: ListSectionController {
 
     override func didUpdate(to object: Any) {
         item = object as! PaymentDisplayable
+    }
+
+    override func didSelectItem(at index: Int) {
+        delegate?.didSelect(item.payment)
     }
 }

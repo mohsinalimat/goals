@@ -14,12 +14,15 @@ protocol PaymentsViewModelInput {
     func viewDidAppear()
     func pullToRefresh()
     func addPaymentTapped()
+
+    func delete(_ payment: Payment)
 }
 
 protocol PaymentsViewModelOutput {
     var payments: Driver<[PaymentDisplayable]> { get }
     var isLoading: Driver<Bool> { get }
     var showAddPaymentWithGoal: Driver<Goal> { get }
+    var paymentDeleted: Driver<Void> { get }
 }
 
 protocol PaymentsViewModelType {
@@ -32,8 +35,9 @@ final class PaymentsViewModel: PaymentsViewModelType, PaymentsViewModelInput, Pa
     let payments: SharedSequence<DriverSharingStrategy, [PaymentDisplayable]>
     let isLoading: SharedSequence<DriverSharingStrategy, Bool>
     let showAddPaymentWithGoal: SharedSequence<DriverSharingStrategy, Goal>
+    let paymentDeleted: SharedSequence<DriverSharingStrategy, Void>
 
-    init(goal: Goal, paymentService: PaymentLoadable = PaymentService()) {
+    init(goal: Goal, paymentService: PaymentLoadable & PaymentDeletable = PaymentService()) {
         let activityTracker = ActivityTracker()
         isLoading = activityTracker.asDriver()
 
@@ -47,6 +51,10 @@ final class PaymentsViewModel: PaymentsViewModelType, PaymentsViewModelInput, Pa
             }
             .map { $0.map(PaymentDisplayable.init) }
             .asDriver(onErrorJustReturn: [])
+
+        paymentDeleted = paymentToDelete.flatMap(paymentService.delete)
+            .asDriverOnErrorJustComplete()
+            .mapToVoid()
     }
 
     private let viewDidAppearProperty = PublishSubject<Void>()
@@ -62,6 +70,11 @@ final class PaymentsViewModel: PaymentsViewModelType, PaymentsViewModelInput, Pa
     private let addPaymentTappedProperty = PublishSubject<Void>()
     func addPaymentTapped() {
         addPaymentTappedProperty.onNext(())
+    }
+
+    private let paymentToDelete = PublishSubject<Payment>()
+    func delete(_ payment: Payment) {
+        paymentToDelete.onNext(payment)
     }
 
     var input: PaymentsViewModelInput { return self }

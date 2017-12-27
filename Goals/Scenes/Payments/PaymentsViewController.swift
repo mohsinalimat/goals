@@ -15,7 +15,10 @@ final class PaymentDisplayable: ListDiffable {
     let date: Date
     let amount: Double
 
+    let payment: Payment
+
     init(payment: Payment) {
+        self.payment = payment
         uid = payment.uid
         date = payment.date
         amount = payment.amount
@@ -100,6 +103,10 @@ final class PaymentsViewController: UIViewController {
                 self?.present(addPaymentViewController, animated: true)
             })
             .disposed(by: disposeBag)
+
+        viewModel.output.paymentDeleted
+            .drive()
+            .disposed(by: disposeBag)
     }
 
     @IBAction private func addButtonTapped(_ sender: UIButton) {
@@ -122,11 +129,35 @@ extension PaymentsViewController: ListAdapterDataSource {
     }
 
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return PaymentsSectionController()
+        let sectionController = PaymentsSectionController()
+        sectionController.delegate = self
+        return sectionController
     }
 
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
         return nil
+    }
+}
+
+extension PaymentsViewController: PaymentsSectionControllerDelegate {
+    func didSelect(_ payment: Payment) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+//        let editAction = UIAlertAction(title: "Edit", style: .default) { _ in
+//
+//        }
+
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            self.viewModel.input.delete(payment)
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+
+//        alertController.addAction(editAction)
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true)
     }
 }
 
@@ -144,5 +175,3 @@ extension PaymentsViewController: UIViewControllerTransitioningDelegate {
         return transition
     }
 }
-
-
