@@ -29,6 +29,19 @@
 		185794501FF3E26500522A88 /* GoalOverview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1857944F1FF3E26500522A88 /* GoalOverview.storyboard */; };
 		185794531FF3E3B700522A88 /* PaymentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185794521FF3E3B700522A88 /* PaymentsViewController.swift */; };
 		185794551FF3E3C000522A88 /* Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 185794541FF3E3C000522A88 /* Payments.storyboard */; };
+		18AA8A441FF3EA51003BE3AD /* PaymentsSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA8A431FF3EA51003BE3AD /* PaymentsSectionController.swift */; };
+		18AA8A461FF3EAA8003BE3AD /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA8A451FF3EAA8003BE3AD /* Payment.swift */; };
+		18AA8A481FF3EB00003BE3AD /* RMPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA8A471FF3EB00003BE3AD /* RMPayment.swift */; };
+		18AA8A4A1FF3ECB1003BE3AD /* PaymentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA8A491FF3ECB1003BE3AD /* PaymentsViewModel.swift */; };
+		18AA8A4C1FF3ED0E003BE3AD /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA8A4B1FF3ED0E003BE3AD /* PaymentService.swift */; };
+		18AA8A4E1FF3F12F003BE3AD /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA8A4D1FF3F12F003BE3AD /* Image.swift */; };
+		18AA8A511FF3F83D003BE3AD /* AddPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA8A501FF3F83D003BE3AD /* AddPaymentViewController.swift */; };
+		18AA8A531FF3F8BC003BE3AD /* AddPayment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AA8A521FF3F8BC003BE3AD /* AddPayment.storyboard */; };
+		18AA8A551FF3F987003BE3AD /* AddPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA8A541FF3F987003BE3AD /* AddPaymentViewModel.swift */; };
+		18AA8A571FF3FD50003BE3AD /* PaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA8A561FF3FD50003BE3AD /* PaymentCell.swift */; };
+		18AA8A5B1FF416A3003BE3AD /* GoalOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA8A5A1FF416A3003BE3AD /* GoalOverviewViewModel.swift */; };
+		18AA8A5D1FF419A2003BE3AD /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA8A5C1FF419A2003BE3AD /* ProgressView.swift */; };
+		18AA8A5F1FF42405003BE3AD /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA8A5E1FF42405003BE3AD /* Double.swift */; };
 		18C468CD1FF2B77100C53250 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C468CC1FF2B77100C53250 /* Goal.swift */; };
 		18C468D01FF2B78F00C53250 /* RMGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C468CF1FF2B78F00C53250 /* RMGoal.swift */; };
 		18C468D21FF2B8F500C53250 /* Observable+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C468D11FF2B8F500C53250 /* Observable+Domain.swift */; };
@@ -82,6 +95,19 @@
 		1857944F1FF3E26500522A88 /* GoalOverview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GoalOverview.storyboard; sourceTree = "<group>"; };
 		185794521FF3E3B700522A88 /* PaymentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewController.swift; sourceTree = "<group>"; };
 		185794541FF3E3C000522A88 /* Payments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Payments.storyboard; sourceTree = "<group>"; };
+		18AA8A431FF3EA51003BE3AD /* PaymentsSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsSectionController.swift; sourceTree = "<group>"; };
+		18AA8A451FF3EAA8003BE3AD /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		18AA8A471FF3EB00003BE3AD /* RMPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMPayment.swift; sourceTree = "<group>"; };
+		18AA8A491FF3ECB1003BE3AD /* PaymentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewModel.swift; sourceTree = "<group>"; };
+		18AA8A4B1FF3ED0E003BE3AD /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
+		18AA8A4D1FF3F12F003BE3AD /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		18AA8A501FF3F83D003BE3AD /* AddPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentViewController.swift; sourceTree = "<group>"; };
+		18AA8A521FF3F8BC003BE3AD /* AddPayment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPayment.storyboard; sourceTree = "<group>"; };
+		18AA8A541FF3F987003BE3AD /* AddPaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentViewModel.swift; sourceTree = "<group>"; };
+		18AA8A561FF3FD50003BE3AD /* PaymentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCell.swift; sourceTree = "<group>"; };
+		18AA8A5A1FF416A3003BE3AD /* GoalOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalOverviewViewModel.swift; sourceTree = "<group>"; };
+		18AA8A5C1FF419A2003BE3AD /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		18AA8A5E1FF42405003BE3AD /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		18C468CC1FF2B77100C53250 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		18C468CF1FF2B78F00C53250 /* RMGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMGoal.swift; sourceTree = "<group>"; };
 		18C468D11FF2B8F500C53250 /* Observable+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Domain.swift"; sourceTree = "<group>"; };
@@ -147,26 +173,23 @@
 		18026EC81FF2B5D700C9C267 /* Goals */ = {
 			isa = PBXGroup;
 			children = (
-				185794511FF3E3A700522A88 /* Payments */,
-				1857944C1FF3E21600522A88 /* GoalOverview */,
-				18C468CB1FF2B73F00C53250 /* Repository */,
-				18C468CA1FF2B72E00C53250 /* Extensions */,
+				1857944A1FF3DAC900522A88 /* ActivityTracker.swift */,
 				18026EC91FF2B5D700C9C267 /* AppDelegate.swift */,
 				18026ED01FF2B5D700C9C267 /* Assets.xcassets */,
-				18026ED21FF2B5D700C9C267 /* LaunchScreen.storyboard */,
-				18026EF31FF2B60100C9C267 /* Storyboard.swift */,
+				18AA8A421FF3E7C3003BE3AD /* Views */,
 				18026EF51FF2B60F00C9C267 /* Color.swift */,
-				18026EFD1FF2B64600C9C267 /* Reusable.swift */,
+				18C468CE1FF2B77600C53250 /* Domain */,
+				18C468CA1FF2B72E00C53250 /* Extensions */,
 				18026ED51FF2B5D700C9C267 /* Info.plist */,
-				18C468CE1FF2B77600C53250 /* Entity */,
-				18C468D61FF2BA3D00C53250 /* MyGoals */,
-				18C468DB1FF2BD3E00C53250 /* FloatingButton.swift */,
-				18C468DF1FF2BE7000C53250 /* AddGoal */,
-				18C468E21FF2C03F00C53250 /* CircularTransition.swift */,
 				18C468E41FF2C46E00C53250 /* KeyboardObserver.swift */,
-				18C468E81FF2C83400C53250 /* GoalService.swift */,
+				18026ED21FF2B5D700C9C267 /* LaunchScreen.storyboard */,
 				18C468EA1FF2C9D000C53250 /* Observable+Utilities.swift */,
-				1857944A1FF3DAC900522A88 /* ActivityTracker.swift */,
+				18C468CB1FF2B73F00C53250 /* Repository */,
+				18026EFD1FF2B64600C9C267 /* Reusable.swift */,
+				18AA8A411FF3E7A6003BE3AD /* Scenes */,
+				18AA8A401FF3E79B003BE3AD /* Services */,
+				18026EF31FF2B60100C9C267 /* Storyboard.swift */,
+				18AA8A4D1FF3F12F003BE3AD /* Image.swift */,
 			);
 			path = Goals;
 			sourceTree = "<group>";
@@ -186,6 +209,7 @@
 			children = (
 				1857944D1FF3E22600522A88 /* GoalOverviewViewController.swift */,
 				1857944F1FF3E26500522A88 /* GoalOverview.storyboard */,
+				18AA8A5A1FF416A3003BE3AD /* GoalOverviewViewModel.swift */,
 			);
 			path = GoalOverview;
 			sourceTree = "<group>";
@@ -195,14 +219,59 @@
 			children = (
 				185794521FF3E3B700522A88 /* PaymentsViewController.swift */,
 				185794541FF3E3C000522A88 /* Payments.storyboard */,
+				18AA8A431FF3EA51003BE3AD /* PaymentsSectionController.swift */,
+				18AA8A491FF3ECB1003BE3AD /* PaymentsViewModel.swift */,
+				18AA8A561FF3FD50003BE3AD /* PaymentCell.swift */,
 			);
 			path = Payments;
+			sourceTree = "<group>";
+		};
+		18AA8A401FF3E79B003BE3AD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				18C468E81FF2C83400C53250 /* GoalService.swift */,
+				18AA8A4B1FF3ED0E003BE3AD /* PaymentService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		18AA8A411FF3E7A6003BE3AD /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				18AA8A4F1FF3F80F003BE3AD /* AddPayment */,
+				185794511FF3E3A700522A88 /* Payments */,
+				1857944C1FF3E21600522A88 /* GoalOverview */,
+				18C468D61FF2BA3D00C53250 /* MyGoals */,
+				18C468DF1FF2BE7000C53250 /* AddGoal */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		18AA8A421FF3E7C3003BE3AD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18C468E21FF2C03F00C53250 /* CircularTransition.swift */,
+				18C468DB1FF2BD3E00C53250 /* FloatingButton.swift */,
+				18AA8A5C1FF419A2003BE3AD /* ProgressView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		18AA8A4F1FF3F80F003BE3AD /* AddPayment */ = {
+			isa = PBXGroup;
+			children = (
+				18AA8A501FF3F83D003BE3AD /* AddPaymentViewController.swift */,
+				18AA8A521FF3F8BC003BE3AD /* AddPayment.storyboard */,
+				18AA8A541FF3F987003BE3AD /* AddPaymentViewModel.swift */,
+			);
+			path = AddPayment;
 			sourceTree = "<group>";
 		};
 		18C468CA1FF2B72E00C53250 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				18026EF61FF2B60F00C9C267 /* UIColor.swift */,
+				18AA8A5E1FF42405003BE3AD /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -221,18 +290,20 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		18C468CE1FF2B77600C53250 /* Entity */ = {
+		18C468CE1FF2B77600C53250 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
 				18C468CC1FF2B77100C53250 /* Goal.swift */,
+				18AA8A451FF3EAA8003BE3AD /* Payment.swift */,
 			);
-			path = Entity;
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		18C468D31FF2B9C600C53250 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				18C468CF1FF2B78F00C53250 /* RMGoal.swift */,
+				18AA8A471FF3EB00003BE3AD /* RMPayment.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -373,6 +444,7 @@
 				18C468DA1FF2BC1F00C53250 /* MyGoals.storyboard in Resources */,
 				185794551FF3E3C000522A88 /* Payments.storyboard in Resources */,
 				185794501FF3E26500522A88 /* GoalOverview.storyboard in Resources */,
+				18AA8A531FF3F8BC003BE3AD /* AddPayment.storyboard in Resources */,
 				18026ED11FF2B5D700C9C267 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,13 +580,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18AA8A441FF3EA51003BE3AD /* PaymentsSectionController.swift in Sources */,
 				18026EF01FF2B5F700C9C267 /* RealmRepresentable.swift in Sources */,
+				18AA8A461FF3EAA8003BE3AD /* Payment.swift in Sources */,
 				18C468E71FF2C7FA00C53250 /* AddGoalViewModel.swift in Sources */,
+				18AA8A5F1FF42405003BE3AD /* Double.swift in Sources */,
 				1857944E1FF3E22600522A88 /* GoalOverviewViewController.swift in Sources */,
 				18026EEE1FF2B5F200C9C267 /* RunLoopThreadScheduler.swift in Sources */,
+				18AA8A571FF3FD50003BE3AD /* PaymentCell.swift in Sources */,
 				18C468D21FF2B8F500C53250 /* Observable+Domain.swift in Sources */,
 				18026EF21FF2B5FB00C9C267 /* Realm+Ext.swift in Sources */,
 				185794471FF3D0DF00522A88 /* GoalCell.swift in Sources */,
+				18AA8A5B1FF416A3003BE3AD /* GoalOverviewViewModel.swift in Sources */,
 				185794491FF3D22E00522A88 /* MyGoalsSectionController.swift in Sources */,
 				18C468CD1FF2B77100C53250 /* Goal.swift in Sources */,
 				18C468E91FF2C83400C53250 /* GoalService.swift in Sources */,
@@ -522,11 +599,14 @@
 				18026EFE1FF2B64700C9C267 /* Reusable.swift in Sources */,
 				18C468EB1FF2C9D000C53250 /* Observable+Utilities.swift in Sources */,
 				1857944B1FF3DAC900522A88 /* ActivityTracker.swift in Sources */,
+				18AA8A4A1FF3ECB1003BE3AD /* PaymentsViewModel.swift in Sources */,
 				18C468E51FF2C46E00C53250 /* KeyboardObserver.swift in Sources */,
 				18026EF41FF2B60100C9C267 /* Storyboard.swift in Sources */,
 				18026EEC1FF2B5EE00C9C267 /* DomainConvertibleType.swift in Sources */,
 				18C468D81FF2BA4A00C53250 /* MyGoalsViewModel.swift in Sources */,
+				18AA8A551FF3F987003BE3AD /* AddPaymentViewModel.swift in Sources */,
 				18C468D51FF2BA2700C53250 /* MyGoalsViewController.swift in Sources */,
+				18AA8A481FF3EB00003BE3AD /* RMPayment.swift in Sources */,
 				18026ECA1FF2B5D700C9C267 /* AppDelegate.swift in Sources */,
 				18C468D01FF2B78F00C53250 /* RMGoal.swift in Sources */,
 				18C468E31FF2C03F00C53250 /* CircularTransition.swift in Sources */,
@@ -534,7 +614,11 @@
 				18026EF71FF2B60F00C9C267 /* Color.swift in Sources */,
 				185794531FF3E3B700522A88 /* PaymentsViewController.swift in Sources */,
 				18026EF81FF2B60F00C9C267 /* UIColor.swift in Sources */,
+				18AA8A4C1FF3ED0E003BE3AD /* PaymentService.swift in Sources */,
+				18AA8A4E1FF3F12F003BE3AD /* Image.swift in Sources */,
+				18AA8A5D1FF419A2003BE3AD /* ProgressView.swift in Sources */,
 				18C468DC1FF2BD3E00C53250 /* FloatingButton.swift in Sources */,
+				18AA8A511FF3F83D003BE3AD /* AddPaymentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

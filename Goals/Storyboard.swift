@@ -13,6 +13,7 @@ enum Storyboard: String {
     case AddGoal
     case GoalOverview
     case Payments
+    case AddPayment
 
     func instantiate<VC: UIViewController>(_: VC.Type) -> VC {
         guard let viewController = UIStoryboard(name: self.rawValue, bundle: nil).instantiateInitialViewController() as? VC else {

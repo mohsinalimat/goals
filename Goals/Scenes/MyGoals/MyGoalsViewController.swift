@@ -127,12 +127,14 @@ extension MyGoalsViewController: MyGoalsSectionControllerDelegate {
     func didSelectGoal(_ goal: Goal) {
 
         let vc1 = UINavigationController(rootViewController: GoalOverviewViewController.instantiate(with: goal))
+        vc1.tabBarItem = UITabBarItem(title: "Overview", image: Image.overviewIcon, selectedImage: Image.overviewSelectedIcon)
         let vc2 = UINavigationController(rootViewController: PaymentsViewController.instantiate(with: goal))
+        vc2.tabBarItem = UITabBarItem(title: "Payments", image: Image.creditCardIcon, tag: 1)
 
         let tabBarController = UITabBarController()
         tabBarController.setViewControllers([vc1, vc2], animated: false)
 
-        navigationController?.pushViewController(tabBarController, animated: true)
+        present(tabBarController, animated: true)
     }
 }
 

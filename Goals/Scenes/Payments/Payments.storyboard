@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ea5-ht-HGk">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Payments View Controller-->
+        <scene sceneID="oWW-XF-Wtx">
+            <objects>
+                <viewController id="ea5-ht-HGk" customClass="PaymentsViewController" customModule="Goals" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9xB-8a-0uD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ptF-0e-dV7">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ks0-JY-EtC">
+                                    <size key="itemSize" width="375" height="64"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PaymentCell" id="0kb-zA-8FY" customClass="PaymentCell" customModule="Goals" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3V-K5-Cet">
+                                                    <rect key="frame" x="24" y="22.5" width="42" height="20"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvO-dZ-Jh6">
+                                                    <rect key="frame" x="306.5" y="22.5" width="44.5" height="20"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="CvO-dZ-Jh6" firstAttribute="centerY" secondItem="0kb-zA-8FY" secondAttribute="centerY" id="7I8-mF-9M2"/>
+                                            <constraint firstAttribute="trailing" secondItem="CvO-dZ-Jh6" secondAttribute="trailing" constant="24" id="Nel-eZ-x6X"/>
+                                            <constraint firstItem="h3V-K5-Cet" firstAttribute="leading" secondItem="0kb-zA-8FY" secondAttribute="leading" constant="24" id="drV-Fs-eil"/>
+                                            <constraint firstItem="h3V-K5-Cet" firstAttribute="centerY" secondItem="0kb-zA-8FY" secondAttribute="centerY" id="odu-T7-hEf"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="amountLabel" destination="CvO-dZ-Jh6" id="PWf-Y6-60v"/>
+                                            <outlet property="dateLabel" destination="h3V-K5-Cet" id="S98-Ci-lcp"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syA-6h-Lb4" customClass="FloatingButton" customModule="Goals" customModuleProvider="target">
+                                <rect key="frame" x="318" y="610" width="25" height="25"/>
+                                <state key="normal" image="ic_add"/>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="ea5-ht-HGk" eventType="touchUpInside" id="JZ3-RR-PpU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OCu-cY-akr" firstAttribute="trailing" secondItem="syA-6h-Lb4" secondAttribute="trailing" constant="32" id="S36-ly-TOQ"/>
+                            <constraint firstItem="ptF-0e-dV7" firstAttribute="top" secondItem="OCu-cY-akr" secondAttribute="top" id="W2s-c7-1AZ"/>
+                            <constraint firstItem="OCu-cY-akr" firstAttribute="bottom" secondItem="ptF-0e-dV7" secondAttribute="bottom" id="dEv-CU-lR3"/>
+                            <constraint firstItem="OCu-cY-akr" firstAttribute="trailing" secondItem="ptF-0e-dV7" secondAttribute="trailing" id="s24-hf-hZ8"/>
+                            <constraint firstItem="ptF-0e-dV7" firstAttribute="leading" secondItem="OCu-cY-akr" secondAttribute="leading" id="wD7-aG-Wua"/>
+                            <constraint firstItem="OCu-cY-akr" firstAttribute="bottom" secondItem="syA-6h-Lb4" secondAttribute="bottom" constant="32" id="zqR-3o-jwd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OCu-cY-akr"/>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="syA-6h-Lb4" id="Sd7-ao-UB1"/>
+                        <outlet property="collectionView" destination="ptF-0e-dV7" id="hVs-9T-TWS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e6Q-xX-nMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="121.88905547226388"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_add" width="25" height="25"/>
+    </resources>
+</document>

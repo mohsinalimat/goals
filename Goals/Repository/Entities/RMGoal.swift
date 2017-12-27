@@ -13,6 +13,7 @@ final class RMGoal: Object {
     @objc dynamic var uid: String = ""
     @objc dynamic var title: String = ""
     @objc dynamic var amount: Double = 0.0
+    let payments = List<RMPayment>()
 
     override class func primaryKey() -> String? {
         return "uid"
@@ -24,7 +25,8 @@ extension RMGoal: DomainConvertibleType {
         return Goal(
             uid: uid,
             title: title,
-            amount: amount
+            amount: amount,
+            payments: payments.mapToDomain()
         )
     }
 }
@@ -35,6 +37,7 @@ extension Goal: RealmRepresentable {
             object.uid = uid
             object.title = title
             object.amount = amount
+            object.payments.append(objectsIn: payments.map { $0.asRealm() })
         }
     }
 }

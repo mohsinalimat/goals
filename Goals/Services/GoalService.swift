@@ -15,6 +15,7 @@ protocol GoalCreatable {
 
 protocol GoalLoadable {
     func all() -> Observable<[Goal]>
+    func load(uid: String) -> Observable<Goal>
 }
 
 struct GoalService {
@@ -30,7 +31,8 @@ extension GoalService: GoalCreatable {
         let goal = Goal(
             uid: UUID().uuidString,
             title: title,
-            amount: amount
+            amount: amount,
+            payments: []
         )
 
         return repository.save(goal)
@@ -41,5 +43,9 @@ extension GoalService: GoalCreatable {
 extension GoalService: GoalLoadable {
     func all() -> Observable<[Goal]> {
         return repository.queryAll()
+    }
+
+    func load(uid: String) -> Observable<Goal> {
+        return repository.query(by: uid)
     }
 }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ETL-tY-yVu">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Add Payment View Controller-->
+        <scene sceneID="ipT-ud-987">
+            <objects>
+                <viewController id="ETL-tY-yVu" customClass="AddPaymentViewController" customModule="Goals" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gmb-4F-yaa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oy6-TN-oAH" customClass="FloatingButton" customModule="Goals" customModuleProvider="target">
+                                <rect key="frame" x="318" y="610" width="25" height="25"/>
+                                <state key="normal" image="ic_checkmark"/>
+                                <connections>
+                                    <action selector="confirmButtonTapped:" destination="ETL-tY-yVu" eventType="touchUpInside" id="adS-If-WOV"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="How much are you saving?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="co5-Z6-Mx4">
+                                <rect key="frame" x="24" y="93" width="327" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7gx-uX-MjM"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eqc-VR-2PY">
+                                <rect key="frame" x="24" y="44" width="25" height="25"/>
+                                <state key="normal" image="ic_close"/>
+                                <connections>
+                                    <action selector="dismissButtonTapped:" destination="ETL-tY-yVu" eventType="touchUpInside" id="rHv-K3-eTj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="co5-Z6-Mx4" firstAttribute="top" secondItem="Eqc-VR-2PY" secondAttribute="bottom" constant="24" id="Hbb-x1-7Kx"/>
+                            <constraint firstItem="Gwg-zg-KUx" firstAttribute="bottom" secondItem="Oy6-TN-oAH" secondAttribute="bottom" constant="32" id="Nm6-eT-NnE"/>
+                            <constraint firstItem="Eqc-VR-2PY" firstAttribute="top" secondItem="Gwg-zg-KUx" secondAttribute="top" constant="24" id="dTa-fo-P17"/>
+                            <constraint firstItem="Eqc-VR-2PY" firstAttribute="leading" secondItem="Gwg-zg-KUx" secondAttribute="leading" constant="24" id="k4V-RX-eDS"/>
+                            <constraint firstItem="Gwg-zg-KUx" firstAttribute="trailing" secondItem="co5-Z6-Mx4" secondAttribute="trailing" constant="24" id="tbO-PR-a52"/>
+                            <constraint firstItem="co5-Z6-Mx4" firstAttribute="leading" secondItem="Gwg-zg-KUx" secondAttribute="leading" constant="24" id="u8K-rb-o60"/>
+                            <constraint firstItem="Gwg-zg-KUx" firstAttribute="trailing" secondItem="Oy6-TN-oAH" secondAttribute="trailing" constant="32" id="wl7-cA-3Jn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Gwg-zg-KUx"/>
+                    </view>
+                    <connections>
+                        <outlet property="amountTextField" destination="co5-Z6-Mx4" id="5g2-Ig-Nv5"/>
+                        <outlet property="confirmButton" destination="Oy6-TN-oAH" id="9fO-ZT-raH"/>
+                        <outlet property="confirmButtonBottomConstraint" destination="Nm6-eT-NnE" id="hgl-j9-otl"/>
+                        <outlet property="dismissButton" destination="Eqc-VR-2PY" id="dxx-sZ-6ee"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Dh-Hx-jiX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-156" y="51"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_checkmark" width="25" height="25"/>
+        <image name="ic_close" width="25" height="25"/>
+    </resources>
+</document>

@@ -1,5 +1,5 @@
 //
-//  MyGoalsSectionController.swift
+//  PaymentsSectionController.swift
 //  Goals
 //
 //  Created by Guilherme Souza on 27/12/17.
@@ -9,27 +9,21 @@
 import Foundation
 import IGListKit
 
-protocol MyGoalsSectionControllerDelegate: class {
-    func didSelectGoal(_ goal: Goal)
-}
-
-final class MyGoalsSectionController: ListSectionController {
-
-    var item: GoalDisplayable!
-    weak var delegate: MyGoalsSectionControllerDelegate?
+final class PaymentsSectionController: ListSectionController {
+    private var item: PaymentDisplayable!
 
     override func sizeForItem(at index: Int) -> CGSize {
         let width = collectionContext!.containerSize.width
-        let height: CGFloat = 100
+        let height: CGFloat = 64
         return CGSize(width: width, height: height)
     }
 
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         guard let cell = collectionContext?.dequeueReusableCellFromStoryboard(
-            withIdentifier: "GoalCell",
+            withIdentifier: "PaymentCell",
             for: self,
             at: index
-            ) as? GoalCell else {
+            ) as? PaymentCell else {
                 fatalError("Could not dequeue cell with identifier: 'GoalCell'")
         }
         cell.setup(with: item)
@@ -37,10 +31,6 @@ final class MyGoalsSectionController: ListSectionController {
     }
 
     override func didUpdate(to object: Any) {
-        item = object as! GoalDisplayable
-    }
-
-    override func didSelectItem(at index: Int) {
-        delegate?.didSelectGoal(item.goal)
+        item = object as! PaymentDisplayable
     }
 }

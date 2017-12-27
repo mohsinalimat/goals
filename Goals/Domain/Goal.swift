@@ -12,9 +12,14 @@ struct Goal {
     let uid: String
     let title: String
     let amount: Double
+    var payments: [Payment]
 
     var remaining: Double {
-        return 0
+        return amount - totalPaid
+    }
+
+    var totalPaid: Double {
+        return payments.reduce(0) { $0 + $1.amount }
     }
 }
 
