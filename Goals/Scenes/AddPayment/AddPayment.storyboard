@@ -30,13 +30,13 @@
                                     <action selector="confirmButtonTapped:" destination="ETL-tY-yVu" eventType="touchUpInside" id="adS-If-WOV"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="How much are you saving?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="co5-Z6-Mx4">
-                                <rect key="frame" x="24" y="93" width="327" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$00.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="co5-Z6-Mx4">
+                                <rect key="frame" x="24" y="105" width="327" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7gx-uX-MjM"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="50"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eqc-VR-2PY">
@@ -49,7 +49,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="co5-Z6-Mx4" firstAttribute="top" secondItem="Eqc-VR-2PY" secondAttribute="bottom" constant="24" id="Hbb-x1-7Kx"/>
+                            <constraint firstItem="co5-Z6-Mx4" firstAttribute="top" secondItem="Eqc-VR-2PY" secondAttribute="bottom" constant="36" id="Hbb-x1-7Kx"/>
                             <constraint firstItem="Gwg-zg-KUx" firstAttribute="bottom" secondItem="Oy6-TN-oAH" secondAttribute="bottom" constant="32" id="Nm6-eT-NnE"/>
                             <constraint firstItem="Eqc-VR-2PY" firstAttribute="top" secondItem="Gwg-zg-KUx" secondAttribute="top" constant="24" id="dTa-fo-P17"/>
                             <constraint firstItem="Eqc-VR-2PY" firstAttribute="leading" secondItem="Gwg-zg-KUx" secondAttribute="leading" constant="24" id="k4V-RX-eDS"/>

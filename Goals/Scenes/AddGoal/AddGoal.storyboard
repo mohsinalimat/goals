@@ -31,24 +31,18 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="N8d-3N-a2l">
-                                <rect key="frame" x="24" y="93" width="327" height="92"/>
+                                <rect key="frame" x="24" y="93" width="327" height="108"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What your Goal?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iwk-wu-Tu8">
-                                        <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="3JJ-Sv-FRM"/>
-                                        </constraints>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What's your Goal?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iwk-wu-Tu8">
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="36"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="How much do you need?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yk4-F8-wy5">
-                                        <rect key="frame" x="0.0" y="52" width="327" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="zZA-Om-YCa"/>
-                                        </constraints>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$145,349.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yk4-F8-wy5">
+                                        <rect key="frame" x="0.0" y="48" width="327" height="60"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="50"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                 </subviews>

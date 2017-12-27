@@ -39,6 +39,7 @@ final class PaymentsViewController: UIViewController {
 
     private lazy var refreshControl: UIRefreshControl = {
         let control = UIRefreshControl()
+//        control.tintColor = .white
         control.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
         return control
     }()

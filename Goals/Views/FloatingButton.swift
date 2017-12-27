@@ -18,6 +18,11 @@ final class FloatingButton: UIButton {
         super.layoutSubviews()
 
         layer.cornerRadius = frame.size.height / 2
-        layer.masksToBounds = true
+        layer.shadowRadius = 4
+        layer.shadowColor = Color.shadow.cgColor
+        layer.shadowOpacity = 1
+        layer.shadowOffset = CGSize(width: 1, height: 1)
+        layer.shouldRasterize = true
+        layer.masksToBounds = false
     }
 }
