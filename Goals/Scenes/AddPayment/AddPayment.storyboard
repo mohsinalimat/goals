@@ -11,6 +11,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
             <string>HelveticaNeue-Bold</string>
         </array>
     </customFonts>
@@ -46,12 +47,20 @@
                                     <action selector="dismissButtonTapped:" destination="ETL-tY-yVu" eventType="touchUpInside" id="rHv-K3-eTj"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwb-Ox-yni">
+                                <rect key="frame" x="309" y="169" width="42" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.1764705882" green="0.76078431369999999" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="co5-Z6-Mx4" firstAttribute="top" secondItem="Eqc-VR-2PY" secondAttribute="bottom" constant="36" id="Hbb-x1-7Kx"/>
                             <constraint firstItem="Gwg-zg-KUx" firstAttribute="bottom" secondItem="Oy6-TN-oAH" secondAttribute="bottom" constant="32" id="Nm6-eT-NnE"/>
+                            <constraint firstItem="gwb-Ox-yni" firstAttribute="trailing" secondItem="co5-Z6-Mx4" secondAttribute="trailing" id="a6e-t6-ByJ"/>
                             <constraint firstItem="Eqc-VR-2PY" firstAttribute="top" secondItem="Gwg-zg-KUx" secondAttribute="top" constant="24" id="dTa-fo-P17"/>
+                            <constraint firstItem="gwb-Ox-yni" firstAttribute="top" secondItem="co5-Z6-Mx4" secondAttribute="bottom" constant="24" id="i0M-zy-6gI"/>
                             <constraint firstItem="Eqc-VR-2PY" firstAttribute="leading" secondItem="Gwg-zg-KUx" secondAttribute="leading" constant="24" id="k4V-RX-eDS"/>
                             <constraint firstItem="Gwg-zg-KUx" firstAttribute="trailing" secondItem="co5-Z6-Mx4" secondAttribute="trailing" constant="24" id="tbO-PR-a52"/>
                             <constraint firstItem="co5-Z6-Mx4" firstAttribute="leading" secondItem="Gwg-zg-KUx" secondAttribute="leading" constant="24" id="u8K-rb-o60"/>
@@ -64,6 +73,7 @@
                         <outlet property="confirmButton" destination="Oy6-TN-oAH" id="9fO-ZT-raH"/>
                         <outlet property="confirmButtonBottomConstraint" destination="Nm6-eT-NnE" id="hgl-j9-otl"/>
                         <outlet property="dismissButton" destination="Eqc-VR-2PY" id="dxx-sZ-6ee"/>
+                        <outlet property="remainingLabel" destination="gwb-Ox-yni" id="cHX-XH-NhR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Dh-Hx-jiX" userLabel="First Responder" sceneMemberID="firstResponder"/>

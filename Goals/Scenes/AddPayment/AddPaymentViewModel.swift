@@ -17,6 +17,8 @@ protocol AddPaymentViewModelInput {
 
 protocol AddPaymentViewModelOutput {
     var paymentCreated: Driver<Void> { get }
+    var remainingMessage: Driver<String> { get }
+    var isConfirmButtonEnabled: Driver<Bool> { get }
 }
 
 protocol AddPaymentViewModelType {
@@ -27,10 +29,32 @@ protocol AddPaymentViewModelType {
 final class AddPaymentViewModel: AddPaymentViewModelType, AddPaymentViewModelInput, AddPaymentViewModelOutput {
 
     let paymentCreated: SharedSequence<DriverSharingStrategy, Void>
+    let remainingMessage: SharedSequence<DriverSharingStrategy, String>
+    let isConfirmButtonEnabled: SharedSequence<DriverSharingStrategy, Bool>
 
     init(goal: Goal, paymentService: PaymentCreatable = PaymentService()) {
 
-        let amount = amountProperty.asDriverOnErrorJustComplete().skipNil().map(Double.init).skipNil()
+        let amount = amountProperty.asDriverOnErrorJustComplete()
+            .map { value -> Double in
+                guard let value = value else { return 0 }
+                return Double(value) ?? 0
+        }
+
+        let remainingValue = Driver.merge(
+            Driver.of(goal.remaining),
+            amount.map { amount in goal.remaining - amount }
+        )
+
+        remainingMessage = remainingValue
+            .map { value in
+                if let currency = Formatter.currency(from: value), value >= 0 {
+                    return "remaining \(currency)"
+                } else {
+                    return "invalid amount"
+                }
+        }
+
+        isConfirmButtonEnabled = remainingValue.map { $0 >= 0 }
 
         paymentCreated = confirmProperty.withLatestFrom(amount)
             .flatMap { amount in paymentService.create(with: amount, on: goal) }

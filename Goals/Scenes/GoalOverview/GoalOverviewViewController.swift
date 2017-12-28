@@ -16,13 +16,6 @@ final class GoalOverviewViewController: UIViewController {
     @IBOutlet private weak var totalPaidLabel: UILabel!
     @IBOutlet private weak var remainingLabel: UILabel!
 
-    private lazy var currencyFormatter: NumberFormatter = makeNumberFormatter()
-    private func makeNumberFormatter() -> NumberFormatter {
-        let nf = NumberFormatter()
-        nf.numberStyle = .currency
-        return nf
-    }
-
     private var viewModel: GoalOverviewViewModelType!
     private let disposeBag = DisposeBag()
 
@@ -47,9 +40,9 @@ final class GoalOverviewViewController: UIViewController {
         viewModel.output.goal
             .drive(onNext: { [weak self] goal in
                 self?.navigationItem.title = goal.title
-                self?.totalNeededLabel.text = self?.currencyFormatter.string(from: goal.amount as NSNumber)
-                self?.totalPaidLabel.text = self?.currencyFormatter.string(from: goal.totalPaid as NSNumber)
-                self?.remainingLabel.text = self?.currencyFormatter.string(from: goal.remaining as NSNumber)
+                self?.totalNeededLabel.text = Formatter.currency(from: goal.amount)
+                self?.totalPaidLabel.text = Formatter.currency(from: goal.totalPaid)
+                self?.remainingLabel.text = Formatter.currency(from: goal.remaining)
 
                 let ratio = goal.totalPaid / goal.amount
                 self?.progressView.animate(to: CGFloat(ratio))

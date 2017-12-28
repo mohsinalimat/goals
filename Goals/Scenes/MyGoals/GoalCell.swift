@@ -25,13 +25,6 @@ final class GoalCell: UICollectionViewCell {
         progressBarInnerView.layer.masksToBounds = true
     }
 
-    private static let currencyFormatter: NumberFormatter = makeNumberFormatter()
-    private static func makeNumberFormatter() -> NumberFormatter {
-        let nf = NumberFormatter()
-        nf.numberStyle = .currency
-        return nf
-    }
-
     func setup(with item: GoalDisplayable) {
         if item.isCompleted {
             applyCompletedStyles()
@@ -40,8 +33,8 @@ final class GoalCell: UICollectionViewCell {
         }
 
         titleLabel.text = item.title
-        totalLabel.text = "total \(GoalCell.currencyFormatter.string(from: item.totalAmount as NSNumber)!)"
-        remainingLabel.text = "remaining \(GoalCell.currencyFormatter.string(from: item.remainingAmount as NSNumber)!)"
+        totalLabel.text = "total \(Formatter.currency(from: item.totalAmount)!)"
+        remainingLabel.text = "remaining \(Formatter.currency(from: item.remainingAmount)!)"
 
         let ratio = (item.totalAmount - item.remainingAmount) / item.totalAmount
         resizeProgressBar(by: ratio)

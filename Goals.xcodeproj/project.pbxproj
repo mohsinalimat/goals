@@ -20,6 +20,7 @@
 		18026EF71FF2B60F00C9C267 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18026EF51FF2B60F00C9C267 /* Color.swift */; };
 		18026EF81FF2B60F00C9C267 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18026EF61FF2B60F00C9C267 /* UIColor.swift */; };
 		18026EFE1FF2B64700C9C267 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18026EFD1FF2B64600C9C267 /* Reusable.swift */; };
+		184EEDC01FF573FD00490DB5 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184EEDBF1FF573FD00490DB5 /* Formatter.swift */; };
 		185794431FF3C29200522A88 /* AddGoalViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185794421FF3C29200522A88 /* AddGoalViewModelTest.swift */; };
 		185794451FF3C2DD00522A88 /* MockGoalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185794441FF3C2DD00522A88 /* MockGoalService.swift */; };
 		185794471FF3D0DF00522A88 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185794461FF3D0DF00522A88 /* GoalCell.swift */; };
@@ -86,6 +87,7 @@
 		18026EF51FF2B60F00C9C267 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		18026EF61FF2B60F00C9C267 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		18026EFD1FF2B64600C9C267 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		184EEDBF1FF573FD00490DB5 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		185794421FF3C29200522A88 /* AddGoalViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalViewModelTest.swift; sourceTree = "<group>"; };
 		185794441FF3C2DD00522A88 /* MockGoalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGoalService.swift; sourceTree = "<group>"; };
 		185794461FF3D0DF00522A88 /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				18AA8A401FF3E79B003BE3AD /* Services */,
 				18026EF31FF2B60100C9C267 /* Storyboard.swift */,
 				18AA8A4D1FF3F12F003BE3AD /* Image.swift */,
+				184EEDBF1FF573FD00490DB5 /* Formatter.swift */,
 			);
 			path = Goals;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				18AA8A4A1FF3ECB1003BE3AD /* PaymentsViewModel.swift in Sources */,
 				18C468E51FF2C46E00C53250 /* KeyboardObserver.swift in Sources */,
 				18026EF41FF2B60100C9C267 /* Storyboard.swift in Sources */,
+				184EEDC01FF573FD00490DB5 /* Formatter.swift in Sources */,
 				18026EEC1FF2B5EE00C9C267 /* DomainConvertibleType.swift in Sources */,
 				18C468D81FF2BA4A00C53250 /* MyGoalsViewModel.swift in Sources */,
 				18AA8A551FF3F987003BE3AD /* AddPaymentViewModel.swift in Sources */,

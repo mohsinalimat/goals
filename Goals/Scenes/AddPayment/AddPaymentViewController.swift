@@ -16,6 +16,7 @@ protocol AddPaymentViewControllerDelegate: class {
 final class AddPaymentViewController: UIViewController {
 
     // MARK: Outlets
+    @IBOutlet private weak var remainingLabel: UILabel!
     @IBOutlet private weak var confirmButton: FloatingButton!
     @IBOutlet private weak var dismissButton: UIButton!
     @IBOutlet private weak var amountTextField: UITextField!
@@ -55,6 +56,14 @@ final class AddPaymentViewController: UIViewController {
     private func bindViewModel() {
         viewModel.output.paymentCreated
             .drive(onNext: clearFields)
+            .disposed(by: disposeBag)
+
+        viewModel.output.remainingMessage
+            .drive(remainingLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.output.isConfirmButtonEnabled
+            .drive(confirmButton.rx.isEnabled)
             .disposed(by: disposeBag)
     }
 
