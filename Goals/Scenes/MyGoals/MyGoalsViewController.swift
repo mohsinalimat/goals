@@ -15,6 +15,7 @@ final class GoalDisplayable: ListDiffable {
     let title: String
     let totalAmount: Double
     let remainingAmount: Double
+    let isCompleted: Bool
 
     let goal: Goal
 
@@ -25,6 +26,7 @@ final class GoalDisplayable: ListDiffable {
         title = goal.title
         totalAmount = goal.amount
         remainingAmount = goal.remaining
+        isCompleted = goal.isCompleted
     }
 
     func diffIdentifier() -> NSObjectProtocol {
@@ -36,7 +38,8 @@ final class GoalDisplayable: ListDiffable {
         return object.uid == uid &&
             object.title == title &&
             object.totalAmount == totalAmount &&
-            object.remainingAmount == remainingAmount
+            object.remainingAmount == remainingAmount &&
+            object.isCompleted == isCompleted
     }
 }
 

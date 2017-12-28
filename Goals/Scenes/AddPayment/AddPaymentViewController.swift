@@ -9,6 +9,10 @@
 import UIKit
 import RxSwift
 
+protocol AddPaymentViewControllerDelegate: class {
+    func willDismissAddPaymentViewController()
+}
+
 final class AddPaymentViewController: UIViewController {
 
     // MARK: Outlets
@@ -18,12 +22,14 @@ final class AddPaymentViewController: UIViewController {
     @IBOutlet private weak var confirmButtonBottomConstraint: NSLayoutConstraint!
 
     private var viewModel: AddPaymentViewModelType!
+    private weak var delegate: AddPaymentViewControllerDelegate?
     private let disposeBag = DisposeBag()
     private lazy var keyboardObserver = KeyboardObserver(delegate: self)
 
-    static func instantiate(with goal: Goal) -> AddPaymentViewController {
+    static func instantiate(with goal: Goal, delegate: AddPaymentViewControllerDelegate? = nil) -> AddPaymentViewController {
         let controller = Storyboard.AddPayment.instantiate(AddPaymentViewController.self)
         controller.viewModel = AddPaymentViewModel(goal: goal)
+        controller.delegate = delegate
         return controller
     }
 
@@ -58,7 +64,9 @@ final class AddPaymentViewController: UIViewController {
 
     // MARK: Actions and Handlers
     @IBAction private func dismissButtonTapped(_ sender: UIButton) {
-        dismiss(animated: true)
+        dismiss(animated: true) {
+            self.delegate?.willDismissAddPaymentViewController()
+        }
     }
 
     @IBAction private func confirmButtonTapped(_ sender: UIButton) {

@@ -35,9 +35,10 @@ final class MyGoalsViewModel: MyGoalsViewModelType, MyGoalsViewModelInput, MyGoa
 
         goals = Observable.merge(viewDidAppearProperty, pullToRefreshProperty)
             .flatMap { _ in
-                return goalService.all()
+                goalService.all()
                     .trackActivity(activityTracker)
             }
+            .map(arrange)
             .map { $0.map(GoalDisplayable.init) }
             .asDriver(onErrorJustReturn: [])
     }
@@ -54,4 +55,14 @@ final class MyGoalsViewModel: MyGoalsViewModelType, MyGoalsViewModelInput, MyGoa
 
     var input: MyGoalsViewModelInput { return self }
     var output: MyGoalsViewModelOutput { return self }
+}
+
+private func arrange(_ goals: [Goal]) -> [Goal] {
+    var arrangedGoals: [Goal] = []
+    arrangedGoals.reserveCapacity(goals.count)
+
+    let notCompletedGoals = goals.filter { !$0.isCompleted }
+    let completedGoals = goals.filter { $0.isCompleted }
+
+    return notCompletedGoals + completedGoals
 }

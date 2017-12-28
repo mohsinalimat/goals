@@ -61,7 +61,7 @@ final class Repository<T: RealmRepresentable>: AbstractRespository<T> where T ==
 
     init(configuration: Realm.Configuration = Realm.Configuration.defaultConfiguration) {
         self.configuration = configuration
-        let name = "com.grsouza.Momentus.Repository"
+        let name = "com.grsouza.Goals.Repository"
         scheduler = RunLoopThreadScheduler(threadName: name)
         print("File 📁 url: \(RLMRealmPathForFile("default.realm"))")
     }

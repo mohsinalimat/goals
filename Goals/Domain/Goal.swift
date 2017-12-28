@@ -21,12 +21,17 @@ struct Goal {
     var totalPaid: Double {
         return payments.reduce(0) { $0 + $1.amount }
     }
+
+    var isCompleted: Bool {
+        return remaining == 0
+    }
 }
 
 extension Goal: Equatable {
     static func ==(lhs: Goal, rhs: Goal) -> Bool {
         return lhs.uid == rhs.uid &&
             lhs.title == rhs.title &&
-            lhs.amount == rhs.amount
+            lhs.amount == rhs.amount &&
+            lhs.isCompleted == rhs.isCompleted
     }
 }

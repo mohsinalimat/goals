@@ -33,15 +33,33 @@ final class GoalCell: UICollectionViewCell {
     }
 
     func setup(with item: GoalDisplayable) {
+        if item.isCompleted {
+            applyCompletedStyles()
+        } else {
+            unapplyCompletedStyles()
+        }
+
         titleLabel.text = item.title
         totalLabel.text = "total \(GoalCell.currencyFormatter.string(from: item.totalAmount as NSNumber)!)"
         remainingLabel.text = "remaining \(GoalCell.currencyFormatter.string(from: item.remainingAmount as NSNumber)!)"
 
         let ratio = (item.totalAmount - item.remainingAmount) / item.totalAmount
+        resizeProgressBar(by: ratio)
+    }
+
+    private func resizeProgressBar(by ratio: Double) {
         UIView.animate(withDuration: 0.3) {
             self.progressBarInnerViewWidthConstraint.constant = self.progressBarOuterView.frame.width * CGFloat(ratio)
             self.layoutIfNeeded()
         }
+    }
+
+    private func applyCompletedStyles() {
+        contentView.alpha = 0.3
+    }
+
+    private func unapplyCompletedStyles() {
+        contentView.alpha = 1.0
     }
 }
 

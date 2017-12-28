@@ -19,10 +19,12 @@ protocol PaymentsViewModelInput {
 }
 
 protocol PaymentsViewModelOutput {
+    var goal: Driver<Goal> { get }
     var payments: Driver<[PaymentDisplayable]> { get }
     var isLoading: Driver<Bool> { get }
     var showAddPaymentWithGoal: Driver<Goal> { get }
     var paymentDeleted: Driver<Void> { get }
+    var isAddPaymentEnabled: Driver<Bool> { get }
 }
 
 protocol PaymentsViewModelType {
@@ -36,25 +38,39 @@ final class PaymentsViewModel: PaymentsViewModelType, PaymentsViewModelInput, Pa
     let isLoading: SharedSequence<DriverSharingStrategy, Bool>
     let showAddPaymentWithGoal: SharedSequence<DriverSharingStrategy, Goal>
     let paymentDeleted: SharedSequence<DriverSharingStrategy, Void>
+    let isAddPaymentEnabled: SharedSequence<DriverSharingStrategy, Bool>
+    let goal: SharedSequence<DriverSharingStrategy, Goal>
 
-    init(goal: Goal, paymentService: PaymentLoadable & PaymentDeletable = PaymentService()) {
+    init(
+        goalUID: String,
+        goalService: GoalLoadable = GoalService(),
+        paymentService: PaymentLoadable & PaymentDeletable = PaymentService()
+        ) {
+        paymentDeleted = paymentToDelete.flatMap(paymentService.delete)
+            .asDriverOnErrorJustComplete()
+            .mapToVoid()
+
+        goal = Driver.merge(paymentDeleted, viewDidAppearProperty.asDriverOnErrorJustComplete())
+            .flatMap { _ in
+                goalService.load(uid: goalUID)
+                    .asDriverOnErrorJustComplete()
+        }
+
         let activityTracker = ActivityTracker()
         isLoading = activityTracker.asDriver()
 
-        showAddPaymentWithGoal = addPaymentTappedProperty.map { _ in goal }
+        showAddPaymentWithGoal = addPaymentTappedProperty.withLatestFrom(goal)
             .asDriverOnErrorJustComplete()
         
         payments = Observable.merge(viewDidAppearProperty, pullToRefreshProperty)
             .flatMap { _ in
-                return paymentService.all(from: goal.uid)
+                return paymentService.all(from: goalUID)
                     .trackActivity(activityTracker)
             }
             .map { $0.map(PaymentDisplayable.init) }
             .asDriver(onErrorJustReturn: [])
 
-        paymentDeleted = paymentToDelete.flatMap(paymentService.delete)
-            .asDriverOnErrorJustComplete()
-            .mapToVoid()
+        isAddPaymentEnabled = goal.map { !$0.isCompleted }
     }
 
     private let viewDidAppearProperty = PublishSubject<Void>()

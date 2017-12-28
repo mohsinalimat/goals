@@ -49,7 +49,6 @@ final class PaymentsViewController: UIViewController {
 
     private lazy var adapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 2)
     private var items: [PaymentDisplayable] = []
-    private var goal: Goal!
 
     private var viewModel: PaymentsViewModelType!
     private let disposeBag = DisposeBag()
@@ -57,14 +56,12 @@ final class PaymentsViewController: UIViewController {
 
     static func instantiate(with goal: Goal) -> PaymentsViewController {
         let controller = Storyboard.Payments.instantiate(PaymentsViewController.self)
-        controller.goal = goal
-        controller.viewModel = PaymentsViewModel(goal: goal)
+        controller.viewModel = PaymentsViewModel(goalUID: goal.uid)
         return controller
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = goal.title
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.closeIcon, style: .done, target: self, action: #selector(dismissTapped(_:)))
         addButton.backgroundColor = Color.primaryGreen
         addButton.tintColor = .white
@@ -97,7 +94,7 @@ final class PaymentsViewController: UIViewController {
 
         viewModel.output.showAddPaymentWithGoal
             .drive(onNext: { [weak self] goal in
-                let addPaymentViewController = AddPaymentViewController.instantiate(with: goal)
+                let addPaymentViewController = AddPaymentViewController.instantiate(with: goal, delegate: self)
                 addPaymentViewController.modalPresentationStyle = .custom
                 addPaymentViewController.transitioningDelegate = self
                 self?.present(addPaymentViewController, animated: true)
@@ -106,6 +103,16 @@ final class PaymentsViewController: UIViewController {
 
         viewModel.output.paymentDeleted
             .drive()
+            .disposed(by: disposeBag)
+
+        viewModel.output.isAddPaymentEnabled
+            .drive(addButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+
+        viewModel.output.goal
+            .drive(onNext: { [weak self] goal in
+                self?.navigationItem.title = goal.title
+            })
             .disposed(by: disposeBag)
     }
 
@@ -142,7 +149,6 @@ extension PaymentsViewController: ListAdapterDataSource {
 extension PaymentsViewController: PaymentsSectionControllerDelegate {
     func didSelect(_ payment: Payment) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-
 //        let editAction = UIAlertAction(title: "Edit", style: .default) { _ in
 //
 //        }
@@ -158,6 +164,12 @@ extension PaymentsViewController: PaymentsSectionControllerDelegate {
         alertController.addAction(cancelAction)
 
         present(alertController, animated: true)
+    }
+}
+
+extension PaymentsViewController: AddPaymentViewControllerDelegate {
+    func willDismissAddPaymentViewController() {
+        viewModel.input.viewDidAppear()
     }
 }
 
