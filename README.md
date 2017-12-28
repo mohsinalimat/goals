@@ -9,3 +9,4 @@ Goals is what the name implies, it is a goal tracker where the user can add fina
 ## Architecture
 The app is developed using the MVVM architecture with reactive components for binding the ViewController and ViewModel.
 
+![](Resources/screen.png)
