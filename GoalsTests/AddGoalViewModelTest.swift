@@ -57,7 +57,12 @@ final class AddGoalViewModelTest: XCTestCase {
         vm.input.amountChanged("1000")
         vm.input.confirmTapped()
 
-        let expected = Goal(uid: "12345", title: "Buy an iPhone X", amount: 1000)
+        let expected = Goal(
+            uid: "12345",
+            title: "Buy an iPhone X",
+            amount: 1000,
+            payments: []
+        )
         XCTAssertEqual(mockGoalService.goalCreated, expected)
     }
 }

@@ -34,11 +34,9 @@ final class AddPaymentViewModel: AddPaymentViewModelType, AddPaymentViewModelInp
 
     init(goal: Goal, paymentService: PaymentCreatable = PaymentService()) {
 
-        let amount = amountProperty.asDriverOnErrorJustComplete()
-            .map { value -> Double in
-                guard let value = value else { return 0 }
-                return Double(value) ?? 0
-        }
+        let amount = amountProperty.asDriverOnErrorJustComplete().whenNil(return: "0")
+            .map(Double.init)
+            .whenNil(return: 0)
 
         let remainingValue = Driver.merge(
             Driver.of(goal.remaining),

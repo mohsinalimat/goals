@@ -11,16 +11,31 @@ import RxSwift
 
 @testable import Goals
 
-final class MockGoalService: GoalCreatable {
+final class MockGoalService: GoalCreatable, GoalLoadable {
     var goalCreated: Goal!
+
+    private let goals: [Goal] = [
+        Goal(uid: "12345", title: "Buy an iPhone X", amount: 1000, payments: []),
+        Goal(uid: "124", title: "Buy a House", amount: 10342900, payments: []),
+    ]
 
     func create(with title: String, amount: Double) -> Observable<Goal> {
         let goal = Goal(
             uid: "12345",
             title: title,
-            amount: amount
+            amount: amount,
+            payments: []
         )
         goalCreated = goal
         return Observable.just(goal)
+    }
+
+    func load(uid: String) -> Observable<Goal> {
+        let goal = goals.first(where: { $0.uid == uid })
+        return Observable.from(optional: goal)
+    }
+
+    func all() -> Observable<[Goal]> {
+        return Observable.from(optional: goals)
     }
 }

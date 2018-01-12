@@ -21,6 +21,7 @@
 		18026EF81FF2B60F00C9C267 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18026EF61FF2B60F00C9C267 /* UIColor.swift */; };
 		18026EFE1FF2B64700C9C267 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18026EFD1FF2B64600C9C267 /* Reusable.swift */; };
 		184EEDC01FF573FD00490DB5 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184EEDBF1FF573FD00490DB5 /* Formatter.swift */; };
+		185791FD2008339600B9D15E /* GoalOverviewViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185791FC2008339600B9D15E /* GoalOverviewViewModelTest.swift */; };
 		185794431FF3C29200522A88 /* AddGoalViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185794421FF3C29200522A88 /* AddGoalViewModelTest.swift */; };
 		185794451FF3C2DD00522A88 /* MockGoalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185794441FF3C2DD00522A88 /* MockGoalService.swift */; };
 		185794471FF3D0DF00522A88 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185794461FF3D0DF00522A88 /* GoalCell.swift */; };
@@ -30,6 +31,7 @@
 		185794501FF3E26500522A88 /* GoalOverview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1857944F1FF3E26500522A88 /* GoalOverview.storyboard */; };
 		185794531FF3E3B700522A88 /* PaymentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185794521FF3E3B700522A88 /* PaymentsViewController.swift */; };
 		185794551FF3E3C000522A88 /* Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 185794541FF3E3C000522A88 /* Payments.storyboard */; };
+		187E0608200388E000F3F58A /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E0607200388E000F3F58A /* ListViewController.swift */; };
 		18AA8A441FF3EA51003BE3AD /* PaymentsSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA8A431FF3EA51003BE3AD /* PaymentsSectionController.swift */; };
 		18AA8A461FF3EAA8003BE3AD /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA8A451FF3EAA8003BE3AD /* Payment.swift */; };
 		18AA8A481FF3EB00003BE3AD /* RMPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA8A471FF3EB00003BE3AD /* RMPayment.swift */; };
@@ -88,6 +90,7 @@
 		18026EF61FF2B60F00C9C267 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		18026EFD1FF2B64600C9C267 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		184EEDBF1FF573FD00490DB5 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		185791FC2008339600B9D15E /* GoalOverviewViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalOverviewViewModelTest.swift; sourceTree = "<group>"; };
 		185794421FF3C29200522A88 /* AddGoalViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalViewModelTest.swift; sourceTree = "<group>"; };
 		185794441FF3C2DD00522A88 /* MockGoalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGoalService.swift; sourceTree = "<group>"; };
 		185794461FF3D0DF00522A88 /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
@@ -97,6 +100,7 @@
 		1857944F1FF3E26500522A88 /* GoalOverview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GoalOverview.storyboard; sourceTree = "<group>"; };
 		185794521FF3E3B700522A88 /* PaymentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewController.swift; sourceTree = "<group>"; };
 		185794541FF3E3C000522A88 /* Payments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Payments.storyboard; sourceTree = "<group>"; };
+		187E0607200388E000F3F58A /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		18AA8A431FF3EA51003BE3AD /* PaymentsSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsSectionController.swift; sourceTree = "<group>"; };
 		18AA8A451FF3EAA8003BE3AD /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		18AA8A471FF3EB00003BE3AD /* RMPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMPayment.swift; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 				18026EF31FF2B60100C9C267 /* Storyboard.swift */,
 				18AA8A4D1FF3F12F003BE3AD /* Image.swift */,
 				184EEDBF1FF573FD00490DB5 /* Formatter.swift */,
+				187E0607200388E000F3F58A /* ListViewController.swift */,
 			);
 			path = Goals;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				18026EE01FF2B5D700C9C267 /* Info.plist */,
 				185794421FF3C29200522A88 /* AddGoalViewModelTest.swift */,
 				185794441FF3C2DD00522A88 /* MockGoalService.swift */,
+				185791FC2008339600B9D15E /* GoalOverviewViewModelTest.swift */,
 			);
 			path = GoalsTests;
 			sourceTree = "<group>";
@@ -604,6 +610,7 @@
 				1857944B1FF3DAC900522A88 /* ActivityTracker.swift in Sources */,
 				18AA8A4A1FF3ECB1003BE3AD /* PaymentsViewModel.swift in Sources */,
 				18C468E51FF2C46E00C53250 /* KeyboardObserver.swift in Sources */,
+				187E0608200388E000F3F58A /* ListViewController.swift in Sources */,
 				18026EF41FF2B60100C9C267 /* Storyboard.swift in Sources */,
 				184EEDC01FF573FD00490DB5 /* Formatter.swift in Sources */,
 				18026EEC1FF2B5EE00C9C267 /* DomainConvertibleType.swift in Sources */,
@@ -630,6 +637,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185791FD2008339600B9D15E /* GoalOverviewViewModelTest.swift in Sources */,
 				185794451FF3C2DD00522A88 /* MockGoalService.swift in Sources */,
 				185794431FF3C29200522A88 /* AddGoalViewModelTest.swift in Sources */,
 			);

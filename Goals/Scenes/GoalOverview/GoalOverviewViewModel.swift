@@ -26,8 +26,8 @@ protocol GoalOverviewViewModelType {
 final class GoalOverviewViewModel: GoalOverviewViewModelType, GoalOverviewViewModelInput, GoalOverviewViewModelOutput {
     let goal: SharedSequence<DriverSharingStrategy, Goal>
 
-    init(goal: Goal, goalService: GoalLoadable = GoalService()) {
-        self.goal = viewDidAppearProperty.flatMap { _ in goalService.load(uid: goal.uid) }
+    init(goalUID: String, goalService: GoalLoadable = GoalService()) {
+        self.goal = viewDidAppearProperty.flatMap { _ in goalService.load(uid: goalUID) }
             .asDriverOnErrorJustComplete()
     }
 

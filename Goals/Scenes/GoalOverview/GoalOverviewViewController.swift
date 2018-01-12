@@ -21,7 +21,7 @@ final class GoalOverviewViewController: UIViewController {
 
     static func instantiate(with goal: Goal) -> GoalOverviewViewController {
         let controller = Storyboard.GoalOverview.instantiate(GoalOverviewViewController.self)
-        controller.viewModel = GoalOverviewViewModel(goal: goal)
+        controller.viewModel = GoalOverviewViewModel(goalUID: goal.uid)
         return controller
     }
 

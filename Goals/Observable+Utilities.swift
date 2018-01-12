@@ -59,12 +59,24 @@ extension Observable where Element: OptionalType {
             value.optional.map { Observable<Element.Wrapped>.just($0) } ?? Observable<Element.Wrapped>.empty()
         }
     }
+
+    func whenNil(return wrapped: Element.Wrapped) -> Observable<Element.Wrapped> {
+        return flatMap { value in
+            value.optional.map { Observable<Element.Wrapped>.just($0) } ?? Observable<Element.Wrapped>.just(wrapped)
+        }
+    }
 }
 
 extension SharedSequenceConvertibleType where E: OptionalType {
     func skipNil() -> Driver<E.Wrapped> {
         return flatMap { value in
             value.optional.map { Driver<E.Wrapped>.just($0) } ?? Driver<E.Wrapped>.empty()
+        }
+    }
+
+    func whenNil(return wrapped: E.Wrapped) -> Driver<E.Wrapped> {
+        return flatMap { value in
+            value.optional.map { Driver<E.Wrapped>.just($0) } ?? Driver<E.Wrapped>.just(wrapped)
         }
     }
 }
